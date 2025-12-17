@@ -1,10 +1,10 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_sqlalchemy import SQLAlchemy
+import requests
+import folium
 
 from datetime import datetime
 import os
-import requests
-import folium
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'dev'
@@ -39,7 +39,7 @@ def index():
     eventos = Evento.query.order_by(Evento.data).all()
     return render_template("index.html", eventos=eventos)
 
-
+# TODO: nova função e nova rota evento
 @app.route("/evento/<int:evento_id>")
 def evento(evento_id):
     evento = Evento.query.get_or_404(evento_id)

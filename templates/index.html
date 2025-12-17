@@ -33,6 +33,7 @@
             <tbody>
                 {% for e in eventos %}
                 <tr>
+                    <!-- TODO: link -->
                     <td><a href="{{ url_for('evento', evento_id=e.id) }}">{{ e.nome }}</a></td>
                     <td>{{ e.data.strftime('%d/%m/%Y') if e.data else '' }}</td>
                     <td>{{ e.hora.strftime('%H:%M') if e.hora else '' }}</td>
